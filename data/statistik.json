@@ -1,0 +1,7 @@
+{
+  "jumlah_peta_kerja": 6,
+  "jumlah_hasil_ukur": 5,
+  "rmse_sumber_excel": 3.211746,
+  "crs_sumber": "EPSG:32748",
+  "catatan": "RMSE keseluruhan diambil dari RMS.xlsx; perlu diverifikasi terhadap pasangan titik dan rumus perhitungan."
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebGIS Pendaftaran Tanah</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <div class="eyebrow">APLIKASI PRAKTIKUM GEOMATIKA</div>
+      <h1>WebGIS Pendaftaran Tanah</h1>
+      <p>Visualisasi peta kerja dan hasil pengukuran GNSS RTK NTRIP</p>
+    </div>
+    <div class="crs-pill">EPSG:32748 · WGS 84 / UTM 48S</div>
+  </header>
+
+  <main class="layout">
+    <section class="workspace">
+      <div class="stats">
+        <article class="stat-card"><span>Bidang peta kerja</span><strong id="statKerja">–</strong></article>
+        <article class="stat-card"><span>Bidang hasil ukur</span><strong id="statUkur">–</strong></article>
+        <article class="stat-card"><span>Total luas digitasi</span><strong id="totalKerja">–</strong><small>m²</small></article>
+        <article class="stat-card"><span>Total luas hasil ukur</span><strong id="totalUkur">–</strong><small>m²</small></article>
+      </div>
+
+      <div class="map-toolbar">
+        <div><strong>Peta bidang tanah</strong><span> Klik polygon untuk melihat atribut dan luas</span></div>
+        <div class="toolbar-actions">
+          <button id="zoomAll" class="secondary">Tampilkan semua</button>
+        </div>
+      </div>
+      <div id="map"></div>
+      <div class="legend">
+        <span><i class="swatch kerja"></i> Peta kerja / digitasi</span>
+        <span><i class="swatch ukur"></i> Hasil pengukuran</span>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <section class="panel">
+        <h2>Kontrol layer</h2>
+        <label class="layer-toggle"><input type="checkbox" id="toggleKerja" checked> <i class="swatch kerja"></i> Peta kerja</label>
+        <label class="layer-toggle"><input type="checkbox" id="toggleUkur" checked> <i class="swatch ukur"></i> Hasil ukur</label>
+        <label class="layer-toggle"><input type="checkbox" id="toggleBasemap" checked> Tampilkan basemap</label>
+      </section>
+
+      <section class="panel">
+        <h2>Cari bidang</h2>
+        <div class="search-row">
+          <input id="searchInput" type="search" placeholder="Contoh: Bidang1 atau Sawah1">
+          <button id="searchBtn">Cari</button>
+        </div>
+        <p class="hint" id="searchMessage">Pencarian berdasarkan nama bidang.</p>
+      </section>
+
+      <section class="panel" id="detailPanel">
+        <h2>Informasi bidang</h2>
+        <p class="empty-state">Pilih salah satu polygon pada peta untuk melihat informasi bidang tanah.</p>
+      </section>
+
+      <section class="panel">
+        <h2>Evaluasi pengukuran</h2>
+        <div class="rmse-value"><strong id="rmseValue">3,211746</strong><span>Nilai RMSE keseluruhan dari RMS.xlsx</span></div>
+        <p class="hint">Nilai ditampilkan sesuai dokumen sumber dan belum diverifikasi ulang. Pastikan pasangan titik dan rumus RMSE sebelum digunakan sebagai hasil final laporan.</p>
+      </section>
+    </aside>
+  </main>
+
+  <section class="panel comparison">
+    <div class="section-heading">
+      <div><h2>Perbandingan luas bidang</h2><p>Perbandingan berdasarkan nama bidang yang sama pada kedua layer.</p></div>
+      <input id="tableSearch" type="search" placeholder="Filter tabel...">
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Nama bidang</th><th>Luas digitasi (m²)</th><th>Luas hasil ukur (m²)</th><th>Selisih (m²)</th><th>Status</th></tr></thead>
+        <tbody id="comparisonBody"><tr><td colspan="5">Memuat data...</td></tr></tbody>
+      </table>
+    </div>
+    <p class="footnote">Selisih = luas hasil ukur − luas digitasi. Bidang yang tidak memiliki pasangan ditandai dan tidak dihitung selisihnya.</p>
+  </section>
+
+  <footer>WebGIS praktikum · Data sumber: 1.gpkg (hasil ukur), 2.gpkg (peta kerja), dan RMS.xlsx.</footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

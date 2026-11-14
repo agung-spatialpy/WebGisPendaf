@@ -1,0 +1,44 @@
+[
+  {
+    "bidang": "Bidang1",
+    "luas_digitasi": 566.352,
+    "luas_ukur": 555.428,
+    "selisih": -10.924,
+    "status": "Cocok"
+  },
+  {
+    "bidang": "Bidang2",
+    "luas_digitasi": 241.868,
+    "luas_ukur": 245.824,
+    "selisih": 3.956,
+    "status": "Cocok"
+  },
+  {
+    "bidang": "Bidang3",
+    "luas_digitasi": 262.742,
+    "luas_ukur": null,
+    "selisih": null,
+    "status": "Tidak ada di hasil ukur"
+  },
+  {
+    "bidang": "Bidang4",
+    "luas_digitasi": 243.828,
+    "luas_ukur": 257.772,
+    "selisih": 13.944,
+    "status": "Cocok"
+  },
+  {
+    "bidang": "Sawah1",
+    "luas_digitasi": 282.251,
+    "luas_ukur": 271.504,
+    "selisih": -10.747,
+    "status": "Cocok"
+  },
+  {
+    "bidang": "Sawah2",
+    "luas_digitasi": 192.385,
+    "luas_ukur": 182.364,
+    "selisih": -10.021,
+    "status": "Cocok"
+  }
+]
